@@ -340,18 +340,21 @@ h3 {
 /*progressbar border*/
 div.progressbar_wrapper {
   border-color: var(--color-GreySelected) !important;
+  border-radius: 12px !important;
 }
 
 /* % of download completed*/
 .progressbar_dark {
   background: var(--color-ProgressBarBG) !important;
   color: var(--color-ProgressBarFG) !important;
+  border-radius: 12px !important;
 }
 
 /* % of download uncompleted*/
 .progressbar_light {
   background: var(--color-Dark) !important;
   color: var(--color-White) !important;
+  border-radius: 12px !important;
 }
 
 /* .panel-collapse {

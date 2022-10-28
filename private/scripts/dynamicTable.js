@@ -369,6 +369,12 @@ window.qBittorrent.DynamicTable = (function() {
             column['getRowValue'] = function(row, pos) {
                 if (pos === undefined)
                     pos = 0;
+		const tracker = row?.full_data?.tracker;
+		if (tracker) {
+		  const regex = /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm;
+		  const matches = tracker.match(regex);
+		  if (matches[0]) row.full_data.tracker = matches[0];
+		}
                 return row['full_data'][this.dataProperties[pos]];
             };
             column['compareRows'] = function(row1, row2) {

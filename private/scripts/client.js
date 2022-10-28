@@ -524,9 +524,11 @@ window.addEvent('load', function() {
         }
         trackerFilterList.appendChild(createLink(TRACKERS_TRACKERLESS, 'QBT_TR(Trackerless (%1))QBT_TR[CONTEXT=TrackerFiltersList]', trackerlessTorrentsCount));
 
-        for (const [hash, tracker] of trackerList)
-            trackerFilterList.appendChild(createLink(hash, tracker.url + ' (%1)', tracker.torrents.length));
-
+        for (const [hash, tracker] of trackerList) {
+	  const regex = /^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/\n]+)/igm;
+	  const matches = tracker.url.match(regex);
+	  trackerFilterList.appendChild(createLink(hash, (matches[0] || tracker.url) + ' (%1)', tracker.torrents.length));
+	}
         highlightSelectedTracker();
     };
 

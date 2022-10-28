@@ -53,7 +53,7 @@ window.qBittorrent.ProgressBar = (function() {
                 'lightfg': '#000'
             };
             if (parameters && $type(parameters) == 'object') $extend(vals, parameters);
-            if (vals.height < 12) vals.height = 12;
+            if (vals.height < 18) vals.height = 18;
             const obj = new Element('div', {
                 'id': vals.id,
                 'class': 'progressbar_wrapper',
@@ -62,7 +62,8 @@ window.qBittorrent.ProgressBar = (function() {
                     'width': vals.width,
                     'height': vals.height,
                     'position': 'relative',
-                    'margin': '0 auto'
+                    'margin': '0 auto',
+		    'right': '3px'
                 }
             });
             obj.vals = vals;

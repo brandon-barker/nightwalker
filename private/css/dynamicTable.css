@@ -15,7 +15,7 @@
 }
 
 #transferList .dynamicTable td {
-    padding: 0 2px;
+    padding: 3px 4px !important;
 }
 
 .dynamicTable tbody tr.selected {
